@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var viewModel = SurveyViewModel()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+          SurveyView()
+                .environmentObject(viewModel)
+
         }
         .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

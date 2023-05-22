@@ -11,6 +11,16 @@
 		D47BF4212A1BC4D6000E3EA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4202A1BC4D6000E3EA8 /* ContentView.swift */; };
 		D47BF4232A1BC4D8000E3EA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47BF4222A1BC4D8000E3EA8 /* Assets.xcassets */; };
 		D47BF4262A1BC4D8000E3EA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47BF4252A1BC4D8000E3EA8 /* Preview Assets.xcassets */; };
+		D47BF4332A1BC83C000E3EA8 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4322A1BC83C000E3EA8 /* Answer.swift */; };
+		D47BF4352A1BC84D000E3EA8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4342A1BC84D000E3EA8 /* Question.swift */; };
+		D47BF4372A1BC885000E3EA8 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4362A1BC885000E3EA8 /* Survey.swift */; };
+		D47BF4392A1BC8F6000E3EA8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4382A1BC8F6000E3EA8 /* APIService.swift */; };
+		D47BF43B2A1BC9C5000E3EA8 /* SurveyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF43A2A1BC9C5000E3EA8 /* SurveyResult.swift */; };
+		D47BF43D2A1BCA60000E3EA8 /* SurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF43C2A1BCA60000E3EA8 /* SurveyViewModel.swift */; };
+		D47BF43F2A1BCB49000E3EA8 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF43E2A1BCB49000E3EA8 /* QuestionViewModel.swift */; };
+		D47BF4412A1BCC3D000E3EA8 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4402A1BCC3D000E3EA8 /* QuestionView.swift */; };
+		D47BF4432A1BCF7C000E3EA8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4422A1BCF7C000E3EA8 /* StringExtensions.swift */; };
+		D47BF4452A1BE441000E3EA8 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4442A1BE441000E3EA8 /* SurveyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +29,17 @@
 		D47BF4202A1BC4D6000E3EA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D47BF4222A1BC4D8000E3EA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D47BF4252A1BC4D8000E3EA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D47BF4322A1BC83C000E3EA8 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		D47BF4342A1BC84D000E3EA8 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D47BF4362A1BC885000E3EA8 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		D47BF4382A1BC8F6000E3EA8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D47BF43A2A1BC9C5000E3EA8 /* SurveyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResult.swift; sourceTree = "<group>"; };
+		D47BF43C2A1BCA60000E3EA8 /* SurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModel.swift; sourceTree = "<group>"; };
+		D47BF43E2A1BCB49000E3EA8 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		D47BF4402A1BCC3D000E3EA8 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		D47BF4422A1BCF7C000E3EA8 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		D47BF4442A1BE441000E3EA8 /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
+		D47BF4462A1BEE27000E3EA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +72,12 @@
 		D47BF41D2A1BC4D6000E3EA8 /* GoTech */ = {
 			isa = PBXGroup;
 			children = (
+				D47BF4462A1BEE27000E3EA8 /* Info.plist */,
+				D47BF4312A1BC575000E3EA8 /* Extensions */,
+				D47BF42F2A1BC564000E3EA8 /* Services */,
+				D47BF42E2A1BC55A000E3EA8 /* ViewModels */,
+				D47BF42D2A1BC54E000E3EA8 /* Views */,
+				D47BF42C2A1BC546000E3EA8 /* Models */,
 				D47BF41E2A1BC4D6000E3EA8 /* GoTechApp.swift */,
 				D47BF4202A1BC4D6000E3EA8 /* ContentView.swift */,
 				D47BF4222A1BC4D8000E3EA8 /* Assets.xcassets */,
@@ -65,6 +92,51 @@
 				D47BF4252A1BC4D8000E3EA8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D47BF42C2A1BC546000E3EA8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D47BF4322A1BC83C000E3EA8 /* Answer.swift */,
+				D47BF4342A1BC84D000E3EA8 /* Question.swift */,
+				D47BF4362A1BC885000E3EA8 /* Survey.swift */,
+				D47BF43A2A1BC9C5000E3EA8 /* SurveyResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D47BF42D2A1BC54E000E3EA8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D47BF4402A1BCC3D000E3EA8 /* QuestionView.swift */,
+				D47BF4442A1BE441000E3EA8 /* SurveyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D47BF42E2A1BC55A000E3EA8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D47BF43C2A1BCA60000E3EA8 /* SurveyViewModel.swift */,
+				D47BF43E2A1BCB49000E3EA8 /* QuestionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D47BF42F2A1BC564000E3EA8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D47BF4382A1BC8F6000E3EA8 /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D47BF4312A1BC575000E3EA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D47BF4422A1BCF7C000E3EA8 /* StringExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +209,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47BF4412A1BCC3D000E3EA8 /* QuestionView.swift in Sources */,
+				D47BF4332A1BC83C000E3EA8 /* Answer.swift in Sources */,
+				D47BF4352A1BC84D000E3EA8 /* Question.swift in Sources */,
+				D47BF43D2A1BCA60000E3EA8 /* SurveyViewModel.swift in Sources */,
+				D47BF4372A1BC885000E3EA8 /* Survey.swift in Sources */,
 				D47BF4212A1BC4D6000E3EA8 /* ContentView.swift in Sources */,
+				D47BF4432A1BCF7C000E3EA8 /* StringExtensions.swift in Sources */,
+				D47BF4392A1BC8F6000E3EA8 /* APIService.swift in Sources */,
+				D47BF4452A1BE441000E3EA8 /* SurveyView.swift in Sources */,
 				D47BF41F2A1BC4D6000E3EA8 /* GoTechApp.swift in Sources */,
+				D47BF43F2A1BCB49000E3EA8 /* QuestionViewModel.swift in Sources */,
+				D47BF43B2A1BC9C5000E3EA8 /* SurveyResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +352,8 @@
 				DEVELOPMENT_TEAM = GAH72SPMY9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoTech/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +383,8 @@
 				DEVELOPMENT_TEAM = GAH72SPMY9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoTech/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
