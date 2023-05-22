@@ -15,7 +15,6 @@
 		D47BF4352A1BC84D000E3EA8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4342A1BC84D000E3EA8 /* Question.swift */; };
 		D47BF4372A1BC885000E3EA8 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4362A1BC885000E3EA8 /* Survey.swift */; };
 		D47BF4392A1BC8F6000E3EA8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4382A1BC8F6000E3EA8 /* APIService.swift */; };
-		D47BF43B2A1BC9C5000E3EA8 /* SurveyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF43A2A1BC9C5000E3EA8 /* SurveyResult.swift */; };
 		D47BF43D2A1BCA60000E3EA8 /* SurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF43C2A1BCA60000E3EA8 /* SurveyViewModel.swift */; };
 		D47BF43F2A1BCB49000E3EA8 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF43E2A1BCB49000E3EA8 /* QuestionViewModel.swift */; };
 		D47BF4412A1BCC3D000E3EA8 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF4402A1BCC3D000E3EA8 /* QuestionView.swift */; };
@@ -33,7 +32,6 @@
 		D47BF4342A1BC84D000E3EA8 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		D47BF4362A1BC885000E3EA8 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		D47BF4382A1BC8F6000E3EA8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		D47BF43A2A1BC9C5000E3EA8 /* SurveyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResult.swift; sourceTree = "<group>"; };
 		D47BF43C2A1BCA60000E3EA8 /* SurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModel.swift; sourceTree = "<group>"; };
 		D47BF43E2A1BCB49000E3EA8 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		D47BF4402A1BCC3D000E3EA8 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				D47BF4322A1BC83C000E3EA8 /* Answer.swift */,
 				D47BF4342A1BC84D000E3EA8 /* Question.swift */,
 				D47BF4362A1BC885000E3EA8 /* Survey.swift */,
-				D47BF43A2A1BC9C5000E3EA8 /* SurveyResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,7 +217,6 @@
 				D47BF4452A1BE441000E3EA8 /* SurveyView.swift in Sources */,
 				D47BF41F2A1BC4D6000E3EA8 /* GoTechApp.swift in Sources */,
 				D47BF43F2A1BCB49000E3EA8 /* QuestionViewModel.swift in Sources */,
-				D47BF43B2A1BC9C5000E3EA8 /* SurveyResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

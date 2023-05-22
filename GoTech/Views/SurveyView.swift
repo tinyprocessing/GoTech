@@ -20,6 +20,8 @@ struct SurveyView: View {
                     ForEach(questions, id:\.self) { question in
                         QuestionView(viewModel: question)
                             .environmentObject(self.viewModel)
+                            .background(Color.white)
+                            .cornerRadius(8)
                     }
                 }  else {
                     Text("No questions available")
@@ -34,13 +36,13 @@ struct SurveyView: View {
                 })
             }) {
                 HStack {
-                    Text("Send Form")
+                    Text("Submit")
                 }
             }
             .foregroundColor(.white)
             .font(.headline)
             .padding()
-            .background(Color.blue)
+            .background(Color.indigo)
             .cornerRadius(10)
             .padding(.horizontal, 20)
             .disabled(!viewModel.validateSurvey())

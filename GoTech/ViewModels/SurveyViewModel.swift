@@ -75,7 +75,6 @@ class SurveyViewModel: NSObject, ObservableObject {
         if let survey = self.survey {
             for question in survey.questions {
                 if question.question.isRequired && !hasSelectedAnswer(answers: question.question.answers) {
-                    // Обязательный вопрос без ответа
                     return false
                 }
                 

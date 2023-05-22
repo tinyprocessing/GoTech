@@ -38,14 +38,4 @@ class QuestionViewModel: NSObject, ObservableObject {
         }
     }
 
-    
-    private func validateAnswer() -> Bool {
-        if question.isRequired && !isAnswered {
-            errorMessage = "This question is required"
-            showErrorMessage = true
-            return false
-        }
-        return true
-    }
-
 }

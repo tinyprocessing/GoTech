@@ -18,7 +18,8 @@ struct QuestionView: View {
             HStack{
                 VStack(alignment: .leading, spacing: 10){
                     Text(viewModel.question.text)
-                        .font(.title)
+                        .font(.system(size: 18))
+                        .foregroundColor(.black)
                     if viewModel.question.isRequired{
                         HStack{
                             Text("* required")
@@ -41,7 +42,9 @@ struct QuestionView: View {
                     }) {
                         HStack {
                             Image(systemName: answer.isSelected ? "checkmark.circle.fill" : "circle")
+                                .foregroundColor(.black)
                             Text(answer.text)
+                                .foregroundColor(.black)
                             Spacer()
                         }
                     }
@@ -57,21 +60,24 @@ struct QuestionView: View {
                         }) {
                             HStack {
                                 Image(systemName: answer.isSelected ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(.black)
                                 if !answer.isOther {
                                     Text(answer.text)
+                                        .foregroundColor(.black)
                                 }else{
                                     Text("Other")
+                                        .foregroundColor(.black)
                                 }
                                 Spacer()
                             }
                         }
                         if answer.isOther {
-                            TextField("Enter your answer", text: $viewModel.question.answers[index].text)
+                            TextField("Your answer", text: $viewModel.question.answers[index].text)
                                 .textFieldStyle(PlainTextFieldStyle())
                                 .padding(10)
                                 .background(Color(.systemBackground))
                                 .cornerRadius(8)
-                                .shadow(color: Color(.systemGray), radius: 2, x: 0, y: 2)
+                                .shadow(color: Color(.systemGray), radius: 1, x: 0, y: 2)
                                 .onChange(of: viewModel.question.answers[index].text) { newValue in
                                     viewModelParent.objectWillChange.send()
                                     if newValue.count > 1  && !newValue.isEmptyOrWhitespace {
@@ -91,7 +97,7 @@ struct QuestionView: View {
             case .textInput:
                 HStack{
                     if viewModel.question.answers.first != nil {
-                        TextField("Enter your answer", text: $viewModel.question.answers[0].text)
+                        TextField("Your answer", text: $viewModel.question.answers[0].text)
                             .onChange(of: viewModel.question.answers[0].text) { newValue in
                                 viewModelParent.objectWillChange.send()
                                 if newValue.count > 1  && !newValue.isEmptyOrWhitespace {
@@ -108,15 +114,14 @@ struct QuestionView: View {
                             .padding(10)
                             .background(Color(.systemBackground))
                             .cornerRadius(8)
-                            .shadow(color: Color(.systemGray), radius: 2, x: 0, y: 2)
-                            .padding(.horizontal, 5)
+                            .shadow(color: Color(.systemGray), radius: 1, x: 0, y: 2)
+                            .padding(.horizontal, 10)
                     }
                     Spacer()
-                }
+                }.padding(.bottom)
             }
             
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
