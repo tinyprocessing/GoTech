@@ -76,7 +76,5 @@ class APIService {
         }.resume()
     }
     
-    func submitSurveyResult(_ result: SurveyResult, completion: @escaping (Result<Void, Error>) -> Void) {
-        
-    }
+    
 }

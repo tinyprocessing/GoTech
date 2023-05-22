@@ -9,16 +9,9 @@ import Foundation
 
 class QuestionViewModel: NSObject, ObservableObject {
     @Published var question: Question
-    @Published var answerText: String = ""
-    @Published var isAnswered: Bool = false
-    @Published var errorMessage: String = ""
-    @Published var showErrorMessage: Bool = false
     
-    private var surveyResult: SurveyResult?
-    
-    init(question: Question, surveyResult: SurveyResult? = nil) {
+    init(question: Question) {
         self.question = question
-        self.surveyResult = surveyResult
     }
     
     func toggleAnswerSelection(_ answer: Answer) {

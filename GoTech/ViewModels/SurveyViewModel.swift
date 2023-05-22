@@ -46,25 +46,8 @@ class SurveyViewModel: NSObject, ObservableObject {
         }
     }
     
-    func submitSurveyResult(result: SurveyResult) {
-        isLoading = true
-        errorMessage = ""
-        
-        apiService.submitSurveyResult(result) { [weak self] result in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                self.isLoading = false
-                
-                switch result {
-                case .success:
-                    // Опрос успешно отправлен
-                    break
-                case .failure(let error):
-                    self.errorMessage = error.localizedDescription
-                }
-            }
-        }
+    func submitSurveyResult() {
+       
     }
     
     func hasSelectedAnswer(answers: [Answer]) -> Bool {
