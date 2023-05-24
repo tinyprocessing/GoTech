@@ -15,9 +15,21 @@ final class APIService {
     private init() {}
     
     func fetchSurvey(completion: @escaping (Result<Survey, Error>) -> Void) {
+        
         let surveyURL = URL(string: "\(baseURL)/questions")!
         
-        URLSession.shared.dataTask(with: surveyURL) { (data, response, error) in
+        
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = 10 // Timeout interval in seconds
+
+        // Create a URLSession with the configuration
+        let session = URLSession(configuration: configuration)
+
+        // Create a URLRequest
+        let request = URLRequest(url: surveyURL)
+
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
                 return

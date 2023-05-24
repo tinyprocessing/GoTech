@@ -42,6 +42,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
                 case .failure(let error):
                     self.objectWillChange.send()
                     self.errorMessage = error.localizedDescription
+                    self.showAlert(message: "Error \(error.localizedDescription)")
                 }
             }
         }
@@ -110,6 +111,9 @@ final class SurveyViewModel: NSObject, ObservableObject {
                 print(jsonString)
             }
         } catch {
+            DispatchQueue.main.async {
+                self.showAlert(message: "Error \(error.localizedDescription)")
+            }
             print("Error encoding JSON: \(error)")
         }
     }
@@ -119,7 +123,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
         if let questions = survey?.questions {
             for model in questions {
                 model.objectWillChange.send()
-                model.clearSelectedAnswers()
+                model.clearSelectedAnswers(clearOther: true)
             }
         }
     }
@@ -127,18 +131,8 @@ final class SurveyViewModel: NSObject, ObservableObject {
     
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            
-        }
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in }
         alertController.addAction(okAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            
-        }
-        alertController.addAction(cancelAction)
-        
-        
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             if let topWindow = windowScene.windows.last {
                 topWindow.rootViewController?.present(alertController, animated: true, completion: nil)

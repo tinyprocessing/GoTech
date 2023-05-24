@@ -14,23 +14,25 @@ final class QuestionViewModel: NSObject, ObservableObject {
         self.question = question
     }
     
-    func toggleAnswerSelection(_ answer: Answer) {
+    func toggleAnswerSelection(_ answer: Answer, clearOther: Bool = true) {
         self.objectWillChange.send()
         guard let index = question.answers.firstIndex(where: { $0.id == answer.id }) else {
             return
         }
         if question.type == .singleChoice || question.type == .singleChoiceWithText{
-            clearSelectedAnswers()
+            clearSelectedAnswers(clearOther: clearOther)
         }
         question.answers[index].isSelected.toggle()
     }
     
-    func clearSelectedAnswers() {
+    func clearSelectedAnswers(clearOther: Bool) {
         for index in 0..<question.answers.count {
             question.answers[index].isSelected = false
             
             if question.type == .textInput || (question.type == .singleChoiceWithText && question.answers[index].isOther) {
-                question.answers[index].text = ""
+                if clearOther {
+                    question.answers[index].text = ""
+                }
             }
         }
     }

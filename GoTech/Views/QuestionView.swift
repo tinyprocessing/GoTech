@@ -35,25 +35,8 @@ struct QuestionView: View {
             
             switch viewModel.question.type {
             case .singleChoice, .multipleChoice:
-                ForEach(viewModel.question.answers, id: \.id) { answer in
-                    Button(action: {
-                        viewModelParent.objectWillChange.send()
-                        viewModel.toggleAnswerSelection(answer)
-                    }) {
-                        HStack {
-                            Image(systemName: answer.isSelected ? "checkmark.circle.fill" : "circle")
-                                .foregroundColor(.black)
-                            Text(answer.text)
-                                .foregroundColor(.black)
-                            Spacer()
-                        }
-                    }
-                    .padding()
-                }
-            case .singleChoiceWithText:
-                ForEach(viewModel.question.answers.indices, id: \.self) { index in
-                    let answer = viewModel.question.answers[index]
-                    HStack{
+                VStack(spacing: 10){
+                    ForEach(viewModel.question.answers, id: \.id) { answer in
                         Button(action: {
                             viewModelParent.objectWillChange.send()
                             viewModel.toggleAnswerSelection(answer)
@@ -61,39 +44,55 @@ struct QuestionView: View {
                             HStack {
                                 Image(systemName: answer.isSelected ? "checkmark.circle.fill" : "circle")
                                     .foregroundColor(.black)
-                                if !answer.isOther {
-                                    Text(answer.text)
-                                        .foregroundColor(.black)
-                                }else{
-                                    Text("Other")
-                                        .foregroundColor(.black)
-                                }
+                                Text(answer.text)
+                                    .foregroundColor(.black)
                                 Spacer()
                             }
-                        }
-                        if answer.isOther {
-                            TextField("Your answer", text: $viewModel.question.answers[index].text)
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .padding(10)
-                                .background(Color(.systemBackground))
-                                .cornerRadius(8)
-                                .shadow(color: Color(.systemGray), radius: 1, x: 0, y: 2)
-                                .onChange(of: viewModel.question.answers[index].text) { newValue in
-                                    viewModelParent.objectWillChange.send()
-                                    if newValue.count > 1  && !newValue.isEmptyOrWhitespace {
-                                        if viewModel.question.isRequired {
-                                            viewModel.question.answers[index].isSelected = true
-                                        }
+                        }.padding(.horizontal)
+                    }
+                }.padding(.bottom)
+            case .singleChoiceWithText:
+                VStack(spacing: 10){
+                    ForEach(viewModel.question.answers.indices, id: \.self) { index in
+                        let answer = viewModel.question.answers[index]
+                        VStack{
+                            Button(action: {
+                                viewModelParent.objectWillChange.send()
+                                viewModel.toggleAnswerSelection(answer)
+                            }) {
+                                HStack {
+                                    Image(systemName: answer.isSelected ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(.black)
+                                    if !answer.isOther {
+                                        Text(answer.text)
+                                            .foregroundColor(.black)
                                     }else{
-                                        if viewModel.question.isRequired {
-//                                            viewModel.question.answers[index].isSelected = false
+                                        Text("Other")
+                                            .foregroundColor(.black)
+                                    }
+                                    Spacer()
+                                }
+                            }
+                            if answer.isOther {
+                                TextField("Your answer", text: $viewModel.question.answers[index].text)
+                                    .textFieldStyle(PlainTextFieldStyle())
+                                    .padding(10)
+                                    .background(Color(.systemBackground))
+                                    .cornerRadius(8)
+                                    .shadow(color: Color(.systemGray), radius: 1, x: 0, y: 2)
+                                    .onChange(of: viewModel.question.answers[index].text) { newValue in
+                                        viewModelParent.objectWillChange.send()
+                                        if newValue.count > 1  && !newValue.isEmptyOrWhitespace {
+                                            if viewModel.question.isRequired {
+                                                viewModel.toggleAnswerSelection(answer, clearOther: false)
+                                            }
                                         }
                                     }
-                                }
+                            }
                         }
+                        .padding(.horizontal)
                     }
-                    .padding()
-                }
+                }.padding(.bottom)
             case .textInput:
                 HStack{
                     if viewModel.question.answers.first != nil {
