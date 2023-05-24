@@ -41,6 +41,7 @@ final class APIService {
                     return
                 }
 
+                // It is possible to use Codable parsing, but i use this style to control more
                 let questionsJSON: [QuestionViewModel] = jsonArray.compactMap { questionJSON in
                     guard let id = questionJSON["id"] as? Int,
                           let title = questionJSON["title"] as? String,

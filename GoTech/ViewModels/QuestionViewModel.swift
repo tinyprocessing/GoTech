@@ -28,7 +28,7 @@ final class QuestionViewModel: NSObject, ObservableObject {
             // If the question type is text input or single choice with text, clear the answer text
             if question.type == .textInput || (question.type == .singleChoiceWithText && question.answers[index].isOther) {
                 if clearOther {
-                    question.answers[index].text = ""
+                    question.answers[index].text.removeAll()
                 }
             }
         }
