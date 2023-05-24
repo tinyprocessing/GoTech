@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 final class SurveyViewModel: NSObject, ObservableObject {
     @Published var survey: Survey?
@@ -96,10 +97,12 @@ final class SurveyViewModel: NSObject, ObservableObject {
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     switch result {
-                    case .success(let survey):
-                       print("success")
+                    case .success(_):
+                        self.clear()
+                        self.showAlert(message: "Uploaded")
                     case .failure(let error):
-                       print(error)
+                        print(error)
+                        self.showAlert(message: "Error \(error.localizedDescription)")
                     }
                 }
             }
@@ -109,6 +112,38 @@ final class SurveyViewModel: NSObject, ObservableObject {
         } catch {
             print("Error encoding JSON: \(error)")
         }
-        
     }
+    
+    func clear(){
+        self.objectWillChange.send()
+        if let questions = survey?.questions {
+            for model in questions {
+                model.objectWillChange.send()
+                model.clearSelectedAnswers()
+            }
+        }
+    }
+    
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            
+        }
+        alertController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            
+        }
+        alertController.addAction(cancelAction)
+        
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let topWindow = windowScene.windows.last {
+                topWindow.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+
 }

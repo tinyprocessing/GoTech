@@ -28,6 +28,10 @@ final class QuestionViewModel: NSObject, ObservableObject {
     func clearSelectedAnswers() {
         for index in 0..<question.answers.count {
             question.answers[index].isSelected = false
+            
+            if question.type == .textInput || (question.type == .singleChoiceWithText && question.answers[index].isOther) {
+                question.answers[index].text = ""
+            }
         }
     }
 

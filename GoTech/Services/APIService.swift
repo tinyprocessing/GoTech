@@ -24,7 +24,7 @@ final class APIService {
             }
             
             guard let data = data else {
-                let error = NSError(domain: "com.example.app", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])
+                let error = NSError(domain: "thenoco.co.GoTech", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])
                 completion(.failure(error))
                 return
             }
@@ -93,16 +93,17 @@ final class APIService {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print("Error: \(error)")
+                completion(.failure(error))
                 return
             }
             
             if let httpResponse = response as? HTTPURLResponse {
                 let statusCode = httpResponse.statusCode
                 if statusCode == 201 {
-                    print("Request successful")
+                    completion(.success(true))
                 } else {
-                    print("Request failed with status code: \(statusCode)")
+                    let error = NSError(domain: "thenoco.co.GoTech", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "Bad response"])
+                    completion(.failure(error))
                 }
             }
         }
