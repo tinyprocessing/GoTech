@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APIService {
+final class APIService {
     static let shared = APIService()
     
     private let baseURL = "http://localhost:3000"
@@ -76,5 +76,37 @@ class APIService {
         }.resume()
     }
     
+    func sendSurvey(_ jsonData: Data, completion: @escaping (Result<Bool, Error>) -> Void){
+        
+        let answersURL = URL(string: "\(baseURL)/answers")!
+
+        var request = URLRequest(url: answersURL)
+
+        
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+
+        // Set the Content-Type header to application/json
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
     
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                let statusCode = httpResponse.statusCode
+                if statusCode == 201 {
+                    print("Request successful")
+                } else {
+                    print("Request failed with status code: \(statusCode)")
+                }
+            }
+        }
+
+        task.resume()
+    }
 }

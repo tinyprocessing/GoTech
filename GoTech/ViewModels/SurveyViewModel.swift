@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class SurveyViewModel: NSObject, ObservableObject {
+final class SurveyViewModel: NSObject, ObservableObject {
     @Published var survey: Survey?
     @Published var isLoading = false
     @Published var errorMessage = ""
@@ -61,9 +61,6 @@ class SurveyViewModel: NSObject, ObservableObject {
                     return false
                 }
                 
-//                if !hasSelectedAnswer(answers: question.question.answers) {
-//                    return false
-//                }
                 
                 if question.question.type == .singleChoiceWithText {
                     var status : Bool = true
@@ -82,5 +79,36 @@ class SurveyViewModel: NSObject, ObservableObject {
         }
         
         return true
+    }
+    
+    func upload() {
+        var surveyAnswer : [SurveyAnswer] = []
+        survey?.questions.forEach({ model in
+            surveyAnswer.append(SurveyAnswer(id: model.question.id,
+                                             answers: model.question.answers.filter { $0.isSelected }))
+        })
+        
+        var result: ResultSurvey = ResultSurvey(id: 0, userID: "0000-0000-0000-0001", result: surveyAnswer)
+            
+        do {
+            let jsonData = try JSONEncoder().encode(result)
+            apiService.sendSurvey(jsonData) { [weak self] result in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let survey):
+                       print("success")
+                    case .failure(let error):
+                       print(error)
+                    }
+                }
+            }
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
+            }
+        } catch {
+            print("Error encoding JSON: \(error)")
+        }
+        
     }
 }

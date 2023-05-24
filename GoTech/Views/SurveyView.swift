@@ -30,10 +30,7 @@ struct SurveyView: View {
             }.padding(.bottom)
             
             Button(action: {
-                viewModel.survey?.questions.forEach({ model in
-                    print("id: \(model.question.id), answer: \(model.question.answers.filter { $0.isSelected })")
-                    
-                })
+                viewModel.upload()
             }) {
                 HStack {
                     Text("Submit")

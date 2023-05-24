@@ -7,7 +7,7 @@
 
 import Foundation
 
-class QuestionViewModel: NSObject, ObservableObject {
+final class QuestionViewModel: NSObject, ObservableObject {
     @Published var question: Question
     
     init(question: Question) {

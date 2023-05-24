@@ -14,3 +14,14 @@ struct Answer: Codable {
     var isOther: Bool = false
 }
 
+struct SurveyAnswer: Codable {
+    let id: Int
+    var answers: [Answer] = []
+}
+
+struct ResultSurvey: Codable {
+    let id: Int
+    var userID: String
+    var result: [SurveyAnswer]
+}
+
