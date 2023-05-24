@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {
+      "id": 3,
+      "title": "Which programming languages do you know? \n(Select all applicable options or add your own)",
+      "type": "singleChoiceWithText",
+      "isRequired": true,
+      "answers": [
+        {
+          "id": 1,
+          "title": "Java"
+        },
+        {
+          "id": 2,
+          "title": "Python"
+        },
+        {
+          "id": 3,
+          "title": "JavaScript"
+        },
+        {
+          "id": 4,
+          "title": "Swift"
+        },
+        {
+          "id": 5,
+          "title": "PHP"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Which of the following operating systems do you use in your work? \n(Select all applicable options)",
+      "type": "multipleChoice",
+      "isRequired": true,
+      "answers": [
+        {
+          "id": 1,
+          "title": "Windows"
+        },
+        {
+          "id": 2,
+          "title": "macOS"
+        },
+        {
+          "id": 3,
+          "title": "Linux"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "What project management tools do you use? \n(Enter any data, separating with commas)\nExample: Jira, Trello, Asana",
+      "type": "textInput",
+      "isRequired": false
+    }
+  ],
+  "answers": [
+    
+  ]
+}

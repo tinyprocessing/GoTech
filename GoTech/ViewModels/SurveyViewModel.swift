@@ -1,10 +1,3 @@
-//
-//  SurveyViewModel.swift
-//  GoTech
-//
-//  Created by Michael Safir on 22.05.2023.
-//
-
 import Foundation
 import Combine
 import UIKit
@@ -18,7 +11,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
     
     let objectWillChange = PassthroughSubject<Void, Never>()
 
-    
+    // MARK: - Initialization
     init(apiService: APIService = APIService.shared) {
         self.apiService = apiService
     }
@@ -52,6 +45,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
        
     }
     
+    // MARK: - Survey Validation
     func hasSelectedAnswer(answers: [Answer]) -> Bool {
         return answers.contains { $0.isSelected }
     }
@@ -83,6 +77,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
         return true
     }
     
+    // MARK: - Survey Submission
     func upload() {
         var surveyAnswer : [SurveyAnswer] = []
         survey?.questions.forEach({ model in
@@ -90,7 +85,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
                                              answers: model.question.answers.filter { $0.isSelected }))
         })
         
-        var result: ResultSurvey = ResultSurvey(id: 0, userID: "0000-0000-0000-0001", result: surveyAnswer)
+        let result: ResultSurvey = ResultSurvey(id: 0, userID: "0000-0000-0000-0001", result: surveyAnswer)
             
         do {
             let jsonData = try JSONEncoder().encode(result)
@@ -118,6 +113,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
         }
     }
     
+    // MARK: - Clearing Answers
     func clear(){
         self.objectWillChange.send()
         if let questions = survey?.questions {
@@ -128,7 +124,7 @@ final class SurveyViewModel: NSObject, ObservableObject {
         }
     }
     
-    
+    // MARK: - Alert Handling
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in }

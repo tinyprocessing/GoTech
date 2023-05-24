@@ -1,10 +1,3 @@
-//
-//  APIService.swift
-//  GoTech
-//
-//  Created by Michael Safir on 22.05.2023.
-//
-
 import Foundation
 
 final class APIService {
@@ -29,7 +22,7 @@ final class APIService {
         let request = URLRequest(url: surveyURL)
 
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
                 return
